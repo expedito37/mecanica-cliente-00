@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
+import {site} from "../config/site";
 
-const whatsapp = "55319999999999";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         <div className={styles.logo}>
           <img src="/imgprinc.webp" alt="Logo da Oficina Mecânica" />
 
-          <strong>OFICINA MECÂNICA</strong>
+          <strong>{site.nome}</strong>
         </div>
 
         <nav className={styles.nav}>
@@ -34,7 +34,7 @@ export default function Home() {
         <p>Excelência e qualidade para cuidar do seu veículo.</p>
 
         <a
-          href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20oficina.`}
+        href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20oficina.`}
           className={`${styles.botao} ${styles.botaoHero}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -72,7 +72,7 @@ export default function Home() {
             <p>Manutenção e revisão do seu veículo.</p>
 
             <a
-              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão%20completa`}
+              href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão%20completa`}
               className={`${styles.botao} ${styles.botaoServico}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -86,7 +86,7 @@ export default function Home() {
             <p>Verificação e manutenção dos freios.</p>
 
             <a
-              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20freios`}
+              href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20freios`}
               className={`${styles.botao} ${styles.botaoServico}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -100,7 +100,7 @@ export default function Home() {
             <p>Diagnóstico e manutenção do motor.</p>
 
             <a
-              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20manutenção%20do%20motor`}
+              href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20manutenção%20do%20motor`}
               className={`${styles.botao} ${styles.botaoServico}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -114,7 +114,7 @@ export default function Home() {
             <p>Troca de óleo, alinhamento e filtros do veículo.</p>
 
             <a
-              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20troca%20de%20óleo%20e%20filtros`}
+              href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20troca%20de%20óleo%20e%20filtros`}
               className={`${styles.botao} ${styles.botaoServico}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -128,7 +128,7 @@ export default function Home() {
             <p>Manutenção e revisão da suspensão.</p>
 
             <a
-              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20suspensão`}
+              href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20suspensão`}
               className={`${styles.botao} ${styles.botaoServico}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -142,7 +142,7 @@ export default function Home() {
             <p>Identificação de falhas eletrônicas e desgastes.</p>
 
             <a
-              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20diagnóstico%20eletrônico`}
+              href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20diagnóstico%20eletrônico`}
               className={`${styles.botao} ${styles.botaoServico}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -157,12 +157,12 @@ export default function Home() {
         <div className={styles.infoContato}>
           <h2>Entre em contato</h2>
 
-          <p>📞 (31) 99999-9999</p>
-          <p>📍 Belo Horizonte - MG</p>
-          <p>🕐 Segunda a sexta: 08:00 às 18:00</p>
+          <p>📞 {site.telefone}</p>
+          <p>📍{site.cidade} - MG</p>
+          <p>🕐{site.horario}</p>
 
           <a
-            href={`https://wa.me/${whatsapp}?text=Olá!%20Como%20posso%20ajudar`}
+            href={`https://wa.me/${site.whatsapp}?text=Olá!%20Como%20posso%20ajudar`}
             className={`${styles.botao} ${styles.botaoContato}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -188,7 +188,7 @@ export default function Home() {
             </a>
 
             <a
-              href={`https://wa.me/${whatsapp}`}
+              href={`https://wa.me/${site.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -199,7 +199,7 @@ export default function Home() {
 
         <div className={styles.mapa}>
           <iframe
-            src="https://www.google.com/maps?q=Serra+Verde,+Belo+Horizonte+-+MG&output=embed"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(site.mapa)}&output=embed`}
             width="100%"
             height="350"
             style={{ border: 0 }}
@@ -214,7 +214,7 @@ export default function Home() {
       </a>
 
       <a
-        href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços.`}
+        href={`https://wa.me/${site.whatsapp}?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços.`}
         className={styles.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
