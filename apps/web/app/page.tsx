@@ -1,102 +1,227 @@
-import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 
-type Props = Omit<ImageProps, "src"> & {
-  srcLight: string;
-  srcDark: string;
-};
-
-const ThemeImage = (props: Props) => {
-  const { srcLight, srcDark, ...rest } = props;
-
-  return (
-    <>
-      <Image {...rest} src={srcLight} className="imgLight" />
-      <Image {...rest} src={srcDark} className="imgDark" />
-    </>
-  );
-};
+const whatsapp = "55319999999999";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <ThemeImage
-          className={styles.logo}
-          srcLight="turborepo-dark.svg"
-          srcDark="turborepo-light.svg"
-          alt="Turborepo logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>apps/web/app/page.tsx</code>
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className={styles.page}>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <img src="/imgprinc.webp" alt="Logo da Oficina Mecânica" />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new/clone?demo-description=Learn+to+implement+a+monorepo+with+a+two+Next.js+sites+that+has+installed+three+local+packages.&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4K8ZISWAzJ8X1504ca0zmC%2F0b21a1c6246add355e55816278ef54bc%2FBasic.png&demo-title=Monorepo+with+Turborepo&demo-url=https%3A%2F%2Fexamples-basic-web.vercel.sh%2F&from=templates&project-name=Monorepo+with+Turborepo&repository-name=monorepo-turborepo&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fturborepo%2Ftree%2Fmain%2Fexamples%2Fbasic&root-directory=apps%2Fdocs&skippable-integrations=1&teamSlug=vercel&utm_source=create-turbo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://turborepo.dev/docs?utm_source"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+          <strong>OFICINA MECÂNICA</strong>
         </div>
-        <Button appName="web" className={styles.secondary}>
-          Open alert
-        </Button>
-      </main>
-      <footer className={styles.footer}>
+
+        <nav className={styles.nav}>
+          <a href="#inicio">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
+      <section
+        id="inicio"
+        className={styles.hero}
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/imgprinc.webp")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <h1>A Tecnologia certa inovação e precisão</h1>
+
+        <p>Excelência e qualidade para cuidar do seu veículo.</p>
+
         <a
-          href="https://vercel.com/templates?search=turborepo&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20oficina.`}
+          className={`${styles.botao} ${styles.botaoHero}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
+          Fale conosco
         </a>
-        <a
-          href="https://turborepo.dev?utm_source=create-turbo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+      </section>
+
+      <section id="sobre" className={styles.sobre}>
+        <div className={styles.textoSobre}>
+          <h2>Sobre nossa oficina</h2>
+
+          <p>
+            Trabalhamos com tecnologia, precisão
+            <br />
+            e experiência para oferecer qualidade
+            <br />e segurança para o seu veículo.
+          </p>
+        </div>
+
+        <div className={styles.carrossel}>
+          <img src="/imgprinc.webp" alt="Oficina mecânica" />
+          <img src="/imgprinc.webp" alt="Serviço mecânico" />
+          <img src="/imgprinc.webp" alt="Carro em manutenção" />
+        </div>
+      </section>
+
+      <section id="servicos" className={styles.servicos}>
+        <h2>Nossos Serviços</h2>
+
+        <div className={styles.cards}>
+          
+          <div className={styles.card}>
+            <h3>Revisão Completa</h3>
+            <p>Manutenção e revisão do seu veículo.</p>
+
+            <a
+              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão%20completa`}
+              className={`${styles.botao} ${styles.botaoServico}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Saiba mais
+            </a>
+          </div>
+          
+          <div className={styles.card}>
+            <h3>Sistema de Freios</h3>
+            <p>Verificação e manutenção dos freios.</p>
+
+            <a
+              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20freios`}
+              className={`${styles.botao} ${styles.botaoServico}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Saiba mais
+            </a>
+          </div>
+          
+          <div className={styles.card}>
+            <h3>Motor</h3>
+            <p>Diagnóstico e manutenção do motor.</p>
+
+            <a
+              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20manutenção%20do%20motor`}
+              className={`${styles.botao} ${styles.botaoServico}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Saiba mais
+            </a>
+          </div>
+          
+          <div className={styles.card}>
+            <h3>Troca de Óleo</h3>
+            <p>Troca de óleo, alinhamento e filtros do veículo.</p>
+
+            <a
+              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20troca%20de%20óleo%20e%20filtros`}
+              className={`${styles.botao} ${styles.botaoServico}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Saiba mais
+            </a>
+          </div>
+          
+          <div className={styles.card}>
+            <h3>Suspensão</h3>
+            <p>Manutenção e revisão da suspensão.</p>
+
+            <a
+              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20suspensão`}
+              className={`${styles.botao} ${styles.botaoServico}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Saiba mais
+            </a>
+          </div>
+        
+          <div className={styles.card}>
+            <h3>Diagnóstico Eletrônico</h3>
+            <p>Identificação de falhas eletrônicas e desgastes.</p>
+
+            <a
+              href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20diagnóstico%20eletrônico`}
+              className={`${styles.botao} ${styles.botaoServico}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Saiba mais
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" className={styles.contato}>
+        <div className={styles.infoContato}>
+          <h2>Entre em contato</h2>
+
+          <p>📞 (31) 99999-9999</p>
+          <p>📍 Belo Horizonte - MG</p>
+          <p>🕐 Segunda a sexta: 08:00 às 18:00</p>
+
+          <a
+            href={`https://wa.me/${whatsapp}?text=Olá!%20Como%20posso%20ajudar`}
+            className={`${styles.botao} ${styles.botaoContato}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Fale conosco
+          </a>
+
+          <div className={styles.redesSociais}>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📘 facebook
+            </a>
+
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📷 instagram
+            </a>
+
+            <a
+              href={`https://wa.me/${whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              💬 WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.mapa}>
+          <iframe
+            src="https://www.google.com/maps?q=Serra+Verde,+Belo+Horizonte+-+MG&output=embed"
+            width="100%"
+            height="350"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
           />
-          Go to turborepo.dev →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      <a href="#inicio" className={styles.voltarTopo}>
+        ↑ Voltar ao topo
+      </a>
+
+      <a
+        href={`https://wa.me/${whatsapp}?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços.`}
+        className={styles.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Fale conosco pelo WhatsApp"
+      >
+        💬
+      </a>
+    </main>
   );
 }
