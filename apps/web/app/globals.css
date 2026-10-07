@@ -1,26 +1,45 @@
+/* ==========================================================
+   globals.css
+   Estilos globais do site: cores de base, fonte, reset e
+   comportamento do scroll
+   ========================================================== */
+
+/* ---------- Cores de base ---------- */
+/* Tema escuro fixo: os textos do site são claros (page.module.css),
+   então o fundo não pode mudar para branco conforme o sistema */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1a1a;
+  --foreground: #f5f4f2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------- Scroll ---------- */
+html {
+  color-scheme: dark;        /* barras de rolagem e campos no tema escuro */
+  scroll-behavior: smooth;   /* os links do menu deslizam até a seção */
+  /* O espaço do cabeçalho fixo é tratado no page.module.css (scroll-margin-top),
+     por isso não repetimos aqui para não somar os dois */
+}
+
+/* Quem desativa animações no sistema recebe o scroll normal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
-html,
+/* ---------- Corpo da página ---------- */
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
+  overflow-x: clip;          /* evita rolagem lateral sem quebrar o cabeçalho fixo (sticky) */
   color: var(--foreground);
   background: var(--background);
+  /* única fonte do site: Inter, carregada no layout.tsx */
+  font-family: var(--font-principal), sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; /* texto mais nítido no Mac/iOS */
 }
 
+/* ---------- Reset ---------- */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -32,19 +51,8 @@ a {
   text-decoration: none;
 }
 
-.imgDark {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-
-  .imgLight {
-    display: none;
-  }
-  .imgDark {
-    display: unset;
-  }
+/* Imagens nunca passam do tamanho da tela */
+img {
+  max-width: 100%;
+  display: block;
 }
